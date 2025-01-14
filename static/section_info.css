@@ -1,7 +1,7 @@
 
 .list-group {
-    width: 100%; /* Make list group take full width of card-body */
-}/* Specific styles for section info page */
+    width: 100%; 
+}
 body {
     background: linear-gradient(135deg, #b8c0ff 0%, #c0c1c5 100%);
     min-height: 100vh;
@@ -28,7 +28,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 1.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 600px; /* Limit the maximum width of the card */
+    max-width: 600px; 
     margin-left: auto;
     margin-right: auto;
 }
@@ -52,7 +52,7 @@ body {
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content horizontally */
+    align-items: center; 
     align-items: center;
 }
 
@@ -84,7 +84,7 @@ body {
     border-left: none;
     border-right: none;
     border-top: 1px solid rgba(0,0,0,0.125);
-    padding: 0.5rem 1rem; /* Reduce vertical padding */
+    padding: 0.5rem 1rem; 
     display: flex;
     justify-content: space-between;
     align-items: center;
