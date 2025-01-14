@@ -1,11 +1,10 @@
 body {
-    background-color: #dadefd; /* Light blue background */
-}
+    background-color: #dadefd; 
 
 .card {
     border: 3px solid #be745d !important;
     transition: transform 0.3s ease;
-    background-color: #ffffff; /* White background for the card */
+    background-color: #ffffff; 
 }
 
 .card:hover {
@@ -92,8 +91,6 @@ body {
     text-decoration: underline;
     cursor: pointer;
 }
-
-/* Specific styles for student info page */
 .student-info-page {
     max-width: 600px;
     margin: 0 auto;
