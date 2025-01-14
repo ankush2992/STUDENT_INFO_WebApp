@@ -1,0 +1,100 @@
+body {
+    background: linear-gradient(135deg, #b8c0ff 0%, #c0c1c5 100%);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 1 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #333111;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}/* Existing styles... */
+
+.student-search-form {
+    background-color: #e6f7ff; /* Light blue background */
+}
+
+.section-info-form {
+    background-color: #fff0e6; /* Light orange background */
+}
+
+/* You can adjust these colors to your preference */
+
+/* If you want to add some hover effects: */
+.student-search-form:hover,
+.section-info-form:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Additional styles to ensure text is readable */
+.student-search-form label,
+.section-info-form label {
+    color: #333; /* Dark gray color for labels */
+}
+
+.student-search-form input,
+.section-info-form input,
+.student-search-form select,
+.section-info-form select {
+    background-color: #ffffff; /* White background for inputs and selects */
+    border: 1px solid #ced4da; /* Bootstrap's default input border color */
+}
+
+/* Adjust button colors if needed */
+.student-search-form .btn-primary,
+.section-info-form .btn-primary {
+    background-color: rgb(94, 84, 142); /* Bootstrap's primary blue */
+    border-color: #007bff;
+}
+
+.student-search-form .btn-primary:hover,
+.section-info-form .btn-primary:hover {
+    background-color: rgb(94, 84, 142); /* Darker blue on hover */
+    border-color: #0056b3;
+}

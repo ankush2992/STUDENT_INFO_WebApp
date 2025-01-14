@@ -1,0 +1,110 @@
+body {
+    background-color: #dadefd; /* Light blue background */
+}
+
+.card {
+    border: 3px solid #be745d !important;
+    transition: transform 0.3s ease;
+    background-color: #ffffff; /* White background for the card */
+}
+
+.card:hover {
+    transform: scale(1.09);
+}
+
+.card-title {
+    color: #d33e63 !important;
+    font-weight: bold;
+    text-align: center;
+}
+
+.list-group-item {
+    background-color: #f8f9fa;
+    border-left: 4px solid #48ecc3;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.list-group-item strong {
+    color: #343a40;
+}
+
+.list-group-item span {
+    color: #6c757d;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.modal-header .close {
+    padding: 0.25rem;
+    margin: -0.25rem -0.25rem -0.25rem auto;
+    font-size: 0.875rem;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    width: 50%;
+    align-items: center; 
+    margin: 50px auto;  
+}
+
+.btn-primary {
+    padding: 4px 8px;
+    font-size: 14px;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    max-width: 100px;
+}
+
+.close {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 1;
+    padding: 0;
+}
+
+.locked-link {
+    color: #6c757d;
+    text-decoration: none;
+    cursor: not-allowed;
+}
+
+.unlocked-link {
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Specific styles for student info page */
+.student-info-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.student-info-page h1 {
+    color: #4a4a4a;
+    text-align: center;
+    margin-bottom: 20px;
+}

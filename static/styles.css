@@ -1,0 +1,56 @@
+/* Common styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header, footer {
+    background-color: rgb(184, 192, 255);
+    color: rgb(165, 165, 141);
+    text-align: center;
+    padding: 1rem;
+}
+
+header h1 {
+    margin: 0; /* Remove default margin from h1 */
+}
+
+main {
+    padding: 2rem;
+}
+
+h1 {
+    color: rgb(50, 98, 115);
+}
+
+h2 {
+    color: #333333;
+}
+
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+input, select, button {
+    display: block;
+    width: 80%;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+
