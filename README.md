@@ -8,18 +8,12 @@ A simple and efficient web application designed to help students quickly find an
 - Secure and reliable data retrieval.
 
 ## Access the Website:
-You can access the web app at: [https://kiitian.me/](https://kiitian.me/)
+You can access the web app at: [Click Here](https://kiitian.me/)
 
 ## How to Use:
-1. Visit the website: [https://kiitian.me/](https://kiitian.me/).
-2. Use the search feature to find student profiles.
-3. Explore campus-related information with ease.
+1. Visit the website: [Website Link](https://kiitian.me/).
 
-## Technologies Used:
-- [List any technologies, frameworks, or libraries used in the project]
-
-## Contributing:
-Feel free to fork this project, submit issues, and create pull requests. Contributions are welcome!
+## update is on progress:
 
 ## License:
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
