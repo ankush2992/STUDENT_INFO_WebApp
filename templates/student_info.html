@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='student_info.css', v=1) }}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card shadow-lg" style="width: 30rem; border-radius: 15px; overflow: hidden;">
+        <div class="card-body gradient-bg">
+            <h2 class="card-title mb-4 text-center text-primary">Student Information</h2>
+            {% if student %}
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <strong>Name:</strong> <span>{{ student.name }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <strong>Roll Number:</strong> <span>{{ student.roll }}</span>
+                    </li>
+                    
+                    {% if student.encrypted_phone %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Phone:</strong>
+                            <span id="phoneDisplay">LOCKED</span>
+                            <button id="revealButton" class="btn btn-primary btn-sm" onclick="showPhoneModal()">Reveal</button>
+                        </li>
+                    {% endif %}
+                    
+                    {% if student['section-5th'] %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Section (5th):</strong> <span>{{ student['section-5th'] }}</span>
+                        </li>
+                    {% endif %}
+                    
+                    {% if student['section-6th'] %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Section (6th):</strong> <span>{{ student['section-6th'] }}</span>
+                        </li>
+                    {% endif %}
+                    
+                    {% if student['sec2nd'] %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Section (2nd yr):</strong> <span>{{ student['sec2nd'] }}</span>
+                        </li>
+                    {% endif %}
+                    
+                    {% if student.hostel %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Hostel:</strong> <span>{{ student.hostel }}</span>
+                        </li>
+                    {% endif %}
+                    
+                    {% if student.kiitmail %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>KIIT Email:</strong> <span><a href="mailto:{{ student.kiitmail }}">{{ student.kiitmail }}</a></span>
+                        </li>
+                    {% endif %}
+                    
+                    {% if student.whatsapp %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>WhatsApp:</strong>
+                            <span id="whatsappLink" class="locked-link">LOCKED</span>
+                        </li>
+                    {% endif %}
+
+                    {% if student.telegram %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <strong>Telegram:</strong>
+                            <span id="telegramLink" class="locked-link">LOCKED</span>
+                        </li>
+                    {% endif %}
+                </ul>
+            {% else %}
+                <div class="alert alert-danger mt-4 text-center">{{ error }}</div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Phone Number Modal -->
+<div class="modal fade" id="phoneModal" tabindex="-1" role="dialog" aria-labelledby="phoneModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="phoneModalLabel">LIMITED  EDITION  PASSWORD</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="password" id="phonePassword" class="form-control" placeholder="enter my name 😉">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="revealPhone()">Reveal Phone</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function showPhoneModal() {
+    $('#phoneModal').modal('show');
+}
+
+
+function logWhatsAppClick(rollNumber) {
+    fetch('/log_activity', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+     
+            action: 'click_whatsapp',
+            roll_number: rollNumber
+        }),
+    });
+}
+
+function logTelegramClick(rollNumber) {
+    fetch('/log_activity', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            action: 'click_telegram',
+            roll_number: rollNumber
+        }),
+    });
+}
+function revealPhone() {
+    var password = document.getElementById('phonePassword').value;
+    var roll = '{{ student.roll }}';
+
+    fetch('/reveal_phone', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            roll: roll,
+            password: password
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            document.getElementById('phoneDisplay').textContent = data.phone;
+            if (data.whatsapp) {
+                var whatsappButton = document.createElement('a');
+                whatsappButton.href = data.whatsapp;
+                whatsappButton.className = 'btn btn-success btn-sm';
+                whatsappButton.textContent = 'WhatsApp';
+                whatsappButton.target = '_blank';
+                whatsappButton.onclick = function() { logWhatsAppClick('{{ student.roll }}'); };//+
+                document.getElementById('whatsappLink').innerHTML = '';
+                document.getElementById('whatsappLink').appendChild(whatsappButton);
+            }
+            if (data.telegram) {
+                var telegramButton = document.createElement('a');
+                telegramButton.href = data.telegram;
+                telegramButton.className = 'btn btn-primary btn-sm';
+                telegramButton.textContent = 'Telegram';
+                telegramButton.target = '_blank';
+                telegramButton.onclick = function() { logTelegramClick('{{ student.roll }}'); };//+
+                document.getElementById('telegramLink').innerHTML = '';
+                document.getElementById('telegramLink').appendChild(telegramButton);
+            }
+            $('#phoneModal').modal('hide');
+        } else {
+            alert(data.error);
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('An error occurred while processing your request.');
+    });
+}
+// Modify your existing code to call these functions when the buttons are clicked//+
+document.addEventListener('DOMContentLoaded', function() {//+
+    var whatsappButton = document.querySelector('#whatsappLink a');//+
+    var telegramButton = document.querySelector('#telegramLink a');//+
+//+
+    if (whatsappButton) {//+
+        whatsappButton.addEventListener('click', function(e) {//+
+            logWhatsAppClick('{{ student.roll }}');//+
+        });//+
+    }//+
+//+
+    if (telegramButton) {//+
+        telegramButton.addEventListener('click', function(e) {//+
+            logTelegramClick('{{ student.roll }}');//+
+        });//+
+    }//+
+});//+
+</script>
+{% endblock %}
