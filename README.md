@@ -11,7 +11,7 @@ A simple and efficient web application designed to help students quickly find an
 You can access the web app at: [Click Here](https://kiitian.me/)
 
 ## How to Use:
-1. Visit the website: [Website Link](https://kiitian.me/).
+1. Visit the website: [Website Link](https://kiitian.me/)..
 
 ## update is IN progress:
 
