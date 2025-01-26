@@ -1,6 +1,7 @@
 
 .list-group {
-    width: 100%; 
+    width: 99%; 
+    
 }
 body {
     background: linear-gradient(135deg, #b8c0ff 0%, #c0c1c5 100%);
