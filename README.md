@@ -1,6 +1,6 @@
 # Campus Student Finder WebApp
 
-A simple and efficient web application designed to help students quickly find and access information about their peers on campus. This app streamlines the search process, making it easy for students to locate essential details about each other, enhancing connectivity within the campus.
+A simple and efficient web application designed to help students quickly find it and access information about their peers on campus. This app streamlines the search process, making it easy for students to locate essential details about each other, enhancing connectivity within the campus.
 
 ## Features:
 - Easy search for student profiles.
